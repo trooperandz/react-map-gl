@@ -4,6 +4,8 @@ import * as React from 'react';
 const unitlessNumber = /box|flex|grid|column|lineHeight|fontWeight|opacity|order|tabSize|zIndex/;
 
 export function applyReactStyle(element: HTMLElement, styles: React.CSSProperties) {
+  console.log('entered apply style.');
+  
   if (!element || !styles) {
     return;
   }
@@ -14,6 +16,7 @@ export function applyReactStyle(element: HTMLElement, styles: React.CSSPropertie
     if (Number.isFinite(value) && !unitlessNumber.test(key)) {
       style[key] = `${value}px`;
     } else {
+      console.log('entered else, key: ', key, 'value: ', value);
       style[key] = value;
     }
   }
